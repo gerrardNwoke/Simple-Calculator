@@ -108,14 +108,14 @@ h1{
     transition: background-color var(--duration) ease-in-out;
 }
 
-.toggle-div button{
-    padding: 0.7em;
+.toggle-div span:not(:last-child){
+    padding: 1em;
     border-radius: 50%;
     outline: none;
     border: none;
     cursor: pointer;
     z-index: 1;
-    opacity: 0;
+    opacity: 0.5;
 }
 
 .toggle-div .indicator{
