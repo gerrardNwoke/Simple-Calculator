@@ -1,0 +1,246 @@
+@import url('https://fonts.googleapis.com/css2?family=Spartan:wght@600;700&display=swap');
+
+*, *::before, *::after{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+:root{
+
+    /* Theme 1 Background */
+    --background-color-1: hsl(222, 26%, 31%);/* Main Background */
+    --background-color-2: hsl(223, 31%, 20%);/* toggle background, keypad background */
+    --background-color-3: hsl(223, 37%, 15%);/* screen background */
+
+    /* Keys */
+    --del-reset-background-btn-color: hsl(225, 21%, 49%); /* key */
+    --del-reset-background-shadow-color: hsl(224, 28%, 35%); /* Shadow */
+    
+    --equal-toggle-background-btn-color: hsl(6, 63%, 50%);   /* Toggle */
+    --equal-background-shadow-color: hsl(6, 70%, 34%);   /* Shadow */
+
+    --num-background-btn-color: hsl(30, 25%, 89%);  /* key */
+    --num-background-shadow-color: hsl(28, 16%, 65%); /* Shadow */
+
+    /* Text */
+    --text-color-screen: white;
+    --text-color-calc-top: white;
+    --text-color-numbers: hsl(221, 14%, 31%);
+    --text-color-del-reset: white;
+    --text-color-equal: white;
+
+    /* Theme color transition duration */
+    --duration: 0.3s; 
+}
+
+body{
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: hsl(222, 26%, 31%);
+    transition : background-color var(--duration) ease-in-out;
+}
+
+main{
+    font-family: 'Spartan', sans-serif;
+    width: 100%;
+    max-width: 30em;
+}
+
+.calc-top{
+    color: var(--text-color-calc-top);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 1em;
+    transition: color var(--duration) ease-in-out;
+}
+
+h1{
+    font-weight: 700;
+    align-self: center;
+    padding: 0 0;
+    transition: color var(--duration) ease-in-out;
+}
+
+.themes{
+    display: grid;
+    width: 11.5em;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    align-items: center;
+    justify-items: center;
+    font-size: 0.8em;
+    row-gap: 0.15em;
+    font-weight:600;
+}
+
+.themes p{
+    grid-row: -2;
+    margin-right: 1.5em;
+    align-self: center;
+    font-weight: 700;
+    font-size: 1em;
+    align-self: center;
+    transition: color var(--duration) ease-in-out;
+}
+
+.themes span{
+    align-self: flex-end;
+    font-weight: 700;
+}
+
+.toggle-div{
+    background-color: hsl(223, 31%, 20%);
+    grid-row: -2;
+    grid-column: 2/ -1;
+    justify-self: stretch;
+    border-radius: 1em;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+    padding: 0.3em;
+    position: relative;
+    width: 100%;
+    transition: background-color var(--duration) ease-in-out;
+}
+
+.toggle-div button{
+    padding: 0.7em;
+    border-radius: 50%;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    z-index: 1;
+    opacity: 0;
+}
+
+.toggle-div .indicator{
+    position: absolute;
+    padding: 0.75em;
+    background-color: var(--equal-toggle-background-btn-color);
+    border-radius: 50%;
+    transform: translateX(calc(-100% - 0.5em));
+    transition: color 0.2s ease-in-out, transform 0.15s ease-in-out, background-color var(--duration) ease-in-out;
+}
+
+.themes #switch-1{
+    grid-column: 2;
+}
+
+.themes span:not(:last-child){
+    font-size: 0.7em;
+}
+
+.span-two{
+    grid-column: span 2;
+}
+
+.calc-screen{
+    min-height: 6em;
+    width: calc(100% - 2em);
+    background-color: hsl(224, 36%, 15%);
+    border-radius: 0.5em;
+    padding: 1em;
+    margin: 1em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    word-wrap: break-word;
+    word-break: break-all;
+    color: var(--text-color-2);
+    gap: 0.3em;
+    transition: background-color var(--duration) ease-in-out, 
+    color var(--duration) ease-in-out;
+}
+
+.calc-screen .previous-operand{
+    font-size: 1em;
+    text-align: right;
+    opacity: 0.7;
+    color: var(--text-color-screen);
+    transition: color var(--duration) ease-in-out;
+}
+
+.calc-screen .current-operand{
+    font-size: 2em;
+    margin-left: auto;
+    text-align: right;
+    color: var(--text-color-screen);
+    transition: color var(--duration) ease-in-out;
+}
+
+.calc-buttons{
+    margin: 0 1em;
+    padding: 1em;
+    width: calc(100% - 2em);
+    min-height: 25em;
+    background-color: hsl(223, 37%, 19%);
+    border-radius: 0.5em;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    align-content: center;
+    justify-content: center;
+    grid-gap: 0.75em;
+    transition: background-color var(--duration) ease-in-out;
+}
+
+.calc-buttons button{
+    position: relative;
+    font-size: 1.5em;
+    outline: none;
+    border: none;
+    border-radius: 0.25em;
+    background-color: var(--num-background-btn-color);
+    box-shadow: 0 0.2rem 0 var(--num-background-shadow-color);
+    color: var(--text-color-numbers);
+    font-weight: 700;
+    transition: box-shadow 0.1s ease-in-out, transform 0.1s ease-in-out, 
+    background-color var(--duration) ease-in-out, color var(--duration) ease-in-out;
+}
+
+.calc-buttons #del-style, .calc-buttons #reset-style{
+    background-color: var(--del-reset-background-btn-color);
+    box-shadow: 0 0.2rem 0 var(--del-reset-background-shadow-color);
+    color: var(--text-color-del-reset);
+    font-size: 1em;
+    letter-spacing: 1.5px;
+    transition: box-shadow 0.1s ease-in-out, transform 0.1s ease-in-out, 
+    background-color var(--duration) ease-in-out, color var(--duration) ease-in-out;
+}
+
+.calc-buttons #equal-style{
+    background-color: var(--equal-toggle-background-btn-color);
+    box-shadow: 0 0.2rem 0 var(--equal-background-shadow-color);
+    color: var(--text-color-equal);
+    font-size: 1em;
+    transition: box-shadow 0.1s ease-in-out, transform 0.1s ease-in-out, 
+    background-color var(--duration) ease-in-out, color var(--duration) ease-in-out;
+}
+
+
+.calc-buttons button:active{
+    transform: translateY(0.1em);
+    box-shadow: 0 0em 0 var(--num-background-shadow-color);
+}
+
+.calc-buttons #equal-style:active{
+    transform: translateY(0.1em);
+    box-shadow: 0 0em 0 var(--equal-background-shadow-color);
+}
+
+.calc-buttons #del-style:active{
+    transform: translateY(0.1em);
+    box-shadow: 0 0em 0 var(--del-reset-background-shadow-color);
+}
+
+.calc-buttons #reset-style:active{
+    transform: translateY(0.1em);
+    box-shadow: 0 0em 0 var(--del-reset-background-shadow-color);
+}
+
+

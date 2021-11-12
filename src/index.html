@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>calculator</title>
+    <link rel="shortcut icon" href="./images/favicon-32x32.png" type="image/x-icon">
+    <link rel="stylesheet" href="style.css" type="text/css">
+    <script src='calculator.js' defer></script>
+    <script src='theme.js' defer></script>
+</head>
+<body>
+    <main>
+        <section class='calc-top'>
+            <h1>calc</h1>
+            <div class="themes">
+                <p>THEME</p>
+                <span id="switch-1">1</span>
+                <span>2</span>
+                <span>3</span>
+                <div class='toggle-div'>
+                    <button data-theme-1></button>
+                    <button data-theme-2></button></button>
+                    <button data-theme-3></button></button>
+                    <span class='indicator'></span>
+                </div>
+            </div>
+        </section>
+
+        <section class="calc-screen">
+            <div data-previous-operand class="previous-operand"></div>
+            <div data-current-operand class="current-operand"></div>
+        </section>
+
+        <section class='calc-buttons'>
+            <button data-number>7</button>
+            <button data-number>8</button>
+            <button data-number>9</button>
+            <button data-delete id="del-style">DEL</button>
+            <button data-number>4</button>
+            <button data-number>5</button>
+            <button data-number>6</button>
+            <button data-operation>+</button>
+            <button data-number>1</button>
+            <button data-number>2</button>
+            <button data-number>3</button>
+            <button data-operation>-</button>
+            <button data-number>.</button>
+            <button data-number>0</button>
+            <button data-operation>/</button>
+            <button data-operation>x</button>
+            <button data-reset class="span-two" id="reset-style">RESET</button>
+            <button data-equals class="span-two" id='equal-style'>=</button>
+        </section>
+    </main>
+</body>
+</html>
