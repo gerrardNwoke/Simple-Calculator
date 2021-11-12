@@ -12,7 +12,7 @@
 </head>
 <body>
     <main>
-        <div class='calc-top'>
+        <section class='calc-top'>
             <h1>calc</h1>
             <div class="themes">
                 <p>THEME</p>
@@ -20,20 +20,20 @@
                 <span>2</span>
                 <span>3</span>
                 <div class='toggle-div'>
-                    <button data-theme-1></button>
-                    <button data-theme-2></button>
-                    <button data-theme-3></button>
+                    <span data-theme-1></span>
+                    <span data-theme-2></span>
+                    <span data-theme-3></span>
                     <span class='indicator'></span>
                 </div>
             </div>
-        </div>
+        </section>
 
         <div class="calc-screen">
             <div data-previous-operand class="previous-operand"></div>
             <div data-current-operand class="current-operand"></div>
         </div>
 
-        <section class='calc-buttons'>
+        <div class='calc-buttons'>
             <button data-number>7</button>
             <button data-number>8</button>
             <button data-number>9</button>
@@ -52,7 +52,7 @@
             <button data-operation>x</button>
             <button data-reset class="span-two" id="reset-style">RESET</button>
             <button data-equals class="span-two" id='equal-style'>=</button>
-        </section>
+        </div>
     </main>
 </body>
 </html>
